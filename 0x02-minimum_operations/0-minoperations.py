@@ -12,12 +12,14 @@ def minOperations(n):
     if n <= 1:
         return 0
     count_H = 1
-    ops = 1
+    ops = 0
     while count_H < n:
         if n % count_H == 0:
-            ops += 1
-            count_H *= 2
+            ops *= 2
+            count_H += 1
         else:
-            return 0
+            remaining = n - count_H
+            ops += remaining
+            break
     return ops
 
